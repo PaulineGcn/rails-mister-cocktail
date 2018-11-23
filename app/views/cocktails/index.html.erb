@@ -1,9 +1,26 @@
-<%= render 'shared/homebanner' %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 50%), url('https://images.unsplash.com/photo-1485686531765-ba63b07845a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38e17507572577969a4fb091851c4e34&auto=format&fit=crop&w=1347&q=80');">
+  <div class="banner-content">
+    <h1>Prohibition Cocktails</h1>
+    <p>
+      <span id="banner-typed-text"></span>
+    </p>
+  </div>
+</div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-   <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+      <%= link_to cocktail_path(c) do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1523370885191-b4370ec51449?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6bebfcc54d294a37435a34c2c7351642&auto=format&fit=crop&w=668&q=80');">
+            <div class="card-description">
+              <%= c.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<p> <%= link_to "Add a new cocktail", new_cocktail_path%> </p>
+
